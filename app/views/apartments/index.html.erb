@@ -1,0 +1,12 @@
+<h1>List's of apartments</h1>
+
+<%= link_to 'Add your own apartment', new_apartment_path, class: "btn btn-default" %>
+
+<ul class="list-unstyled"><% @apartments.each do |apartment| %>
+    <li><h3>Title: <%= apartment.title %></h3>
+        <h4>City: <%= apartment.city %></h4>
+
+        <%= link_to 'Details', apartment_path(apartment), class: "btn btn-primary" %>
+    </li>
+    <% end %>
+  </ul>
