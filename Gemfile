@@ -22,3 +22,9 @@ gem 'thin'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
+gem 'rails_12factor'
+
+gem 'bootstrap-sass'
+
+
+
