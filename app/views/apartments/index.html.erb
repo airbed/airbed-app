@@ -1,12 +1,26 @@
-<h1>List's of apartments</h1>
+
+<h1>List of apartments</h1>
+
+<div class="wrapper"><% @apartments.each do |apartment| %>
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img data-src="holder.js/300x300" alt="<%= @image %>">
+          <div class="caption">
+            <h3>Title: <%= apartment.title %></h3>
+            <h4>City: <%= apartment.city %></h4>
+            <h5>NAME OF THE FLAT</h5>
+            <p></p>
+            <p><%= link_to 'More...', apartment_path(apartment), class: "btn" %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</div>
+
 
 <%= link_to 'Add your own apartment', new_apartment_path, class: "btn btn-default" %>
 
-<ul class="list-unstyled"><% @apartments.each do |apartment| %>
-    <li><h3>Title: <%= apartment.title %></h3>
-        <h4>City: <%= apartment.city %></h4>
 
-        <%= link_to 'Details', apartment_path(apartment), class: "btn btn-primary" %>
-    </li>
-    <% end %>
-  </ul>
+
