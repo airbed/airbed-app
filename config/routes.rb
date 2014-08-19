@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'apartments#index'
+  root 'apartments#landing'
 
   resources :apartments
 
