@@ -13,7 +13,7 @@ class ApartmentsController < ApplicationController
 
   def create
     @apartment = Apartment.create(apartment_params)
-    redirect_to apartment_path
+    redirect_to apartment_path(@apartment)
   end
 
   def edit
@@ -23,7 +23,7 @@ class ApartmentsController < ApplicationController
   def update
     @apartment = Apartment.find(params[:id])
     @apartment.update(apartment_params)
-    redirect_to apartment_path
+    redirect_to apartment_path(@apartment)
   end
 
   def destroy

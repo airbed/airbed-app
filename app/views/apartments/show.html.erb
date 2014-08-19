@@ -1,0 +1,13 @@
+Title : <h1><%= @apartment.title %></h1>
+
+Description : <h3><%= @apartment.description %></h3>
+
+City : <h3><%= @apartment.city %></h3>
+
+People : <h3><%= @apartment.people %></h3>
+
+
+
+<%= link_to 'Back', apartments_path, class: "btn btn-primary" %>
+<%= link_to 'Edit', edit_apartment_path(@apartment), class: "btn btn-warning" %>
+<%= link_to 'Delete', apartment_path(@apartment), method: :delete, class: "btn btn-danger" %>
