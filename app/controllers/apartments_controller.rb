@@ -1,10 +1,12 @@
 class ApartmentsController < ApplicationController
   def index
     @apartments = Apartment.all
+    @image = @apartment.images.first.picture.url
   end
 
   def show
     @apartment = Apartment.find(params[:id])
+    @image = @apartment.images.first.picture.url
   end
 
   def new

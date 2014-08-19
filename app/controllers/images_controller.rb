@@ -8,7 +8,6 @@ class ImagesController < ApplicationController
   def create
     @apartment = Apartment.find(params[:apartment_id])
     @image = @apartment.images.create(image_params)
-    hvhvghvg
     redirect_to apartments_path
   end
 
