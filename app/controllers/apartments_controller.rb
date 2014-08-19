@@ -1,7 +1,6 @@
 class ApartmentsController < ApplicationController
   def index
     @apartments = Apartment.all
-    @image = @apartment.images.first.picture.url
   end
 
   def show
