@@ -13,7 +13,7 @@ class ApartmentsController < ApplicationController
 
   def create
     @apartment = Apartment.create(apartment_params)
-    redirect_to apartment_path(@apartment)
+    redirect_to new_apartment_image_path(@apartment)
   end
 
   def edit
@@ -34,6 +34,6 @@ class ApartmentsController < ApplicationController
 
   private
   def apartment_params
-    params.require(:apartment).permit(:title, :description, :city, :people )
+    params.require(:apartment).permit(:title, :description, :city, :people)
   end
 end
