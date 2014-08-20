@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'apartments#landing'
+  devise_for :users
 
   resources :apartments do
     resources :images, only: [:new, :create, :destroy]

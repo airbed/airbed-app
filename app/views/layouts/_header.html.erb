@@ -15,11 +15,13 @@
         </li>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to 'Connect', apartments_path %>
-        </li>
-      </ul>
+      <div class="nav navbar-nav navbar-right">
+        <ul class="list-inline">
+          <!-- <li class="notice"><%= notice %></li>
+          <li class="alert"><%= alert %></li> -->
+          <li><%= render 'layouts/sessions' %></li>
+        </ul>
+      </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
