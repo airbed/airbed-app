@@ -1,11 +1,15 @@
+<h1 class="text-center">List of apartments</h1>
 
-<h1>List of apartments</h1>
 
-<div class="wrapper"><% @apartments.each do |apartment| %>
+<div class="container">
   <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <%= image_tag apartment.images.first.picture.url(:medium) %>
+    <% @apartments.each do |apartment| %>
+
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+
+          <%= image_tag apartment.images.first.picture.url(:medium) %>
+
           <div class="caption">
             <h3>Title: <%= apartment.title %></h3>
             <h4>City: <%= apartment.city %></h4>
@@ -15,12 +19,8 @@
           </div>
         </div>
       </div>
-    </div>
-  <%end%>
+    <%end%>
+  </div>
 </div>
 
-
-<%= link_to 'Add your own apartment', new_apartment_path, class: "btn btn-default" %>
-
-
-
+<%= render 'layouts/footer' %>
