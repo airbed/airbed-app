@@ -1,14 +1,12 @@
 
 
-$body-bg: #4185C5;
-
-
+$body-bg: #FFFAE8;
 
 body {
   padding-top: 80px;
+  height: 100%;
+  margin-bottom: -100px;
 }
-
-
 
 /* typography */
 
@@ -32,8 +30,6 @@ p {
   line-height: 1.7em;
 }
 
-
-
 /* Vertical spacer to help content breathe */
 
 .vertical-spacer {
@@ -42,34 +38,5 @@ p {
 
 /* footer */
 
-
-footer a {
-  color: #555;
-}
-
-footer a:hover {
-  color: #222;
-}
-
-footer small {
-  float: left;
-}
-
-footer ul {
-  float: right;
-  list-style: none;
-}
-
-footer ul li {
-  float: left;
-  margin-left: 10px;
-}
-
-social a {
-  font-size: 24px;
-}
-
-.social a:hover {
-  text-decoration: none;
-}
+/* see css for footer */
 
