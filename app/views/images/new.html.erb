@@ -1,9 +1,24 @@
-<%= form_for [@apartment, @image], html: { multipart: true } do |f| %>
+<h3 class="text-center vertical-margin-s">Add pictures from your flat</h3>
 
-  <%= f.label :picture %>
-  <%= f.file_field :picture %>
+<ul class="list-inline text-center vertical-margin-s"><% @apartment.images.each do |image| %>
+  <li><%= image_tag image.picture.url(:medium) %></li>
+  <% end %>
+</ul>
 
-  <%= f.submit %>
-<% end %>
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4 ">
+    <div class="text-center vertical-margin-s">
 
-<%= render 'layouts/footer' %>
+      <%= form_for [@apartment, @image], html: { multipart: true } do |f| %>
+
+        <%= f.file_field :picture, :class => 'vertical-margin-s' %>
+
+        <%= f.submit 'Upload image', :class => 'btn' %>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Finish', apartment_path(@apartment), class: "btn btn-success btn-done" %>
