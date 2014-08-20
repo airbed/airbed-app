@@ -1,16 +1,20 @@
-<%= image_tag @image %>
+<div class="text-center">
 
-Title : <h1><%= @apartment.title %></h1>
+  <ul class="list-inline vertical-margin-s"><% @apartment.images.each do |image| %>
+    <li><%= image_tag image.picture.url(:medium) %></li>
+    <% end %>
+  </ul>
 
-Description : <h3><%= @apartment.description %></h3>
+  <h1><%= @apartment.title %></h1>
 
-City : <h3><%= @apartment.city %></h3>
+  Description : <h3><%= @apartment.description %></h3>
 
-People : <h3><%= @apartment.people %></h3>
+  City : <h3><%= @apartment.city %></h3>
 
+  People : <h3><%= @apartment.people %></h3>
 
+  <%= link_to 'Back', apartments_path, class: "btn btn-primary" %>
+  <%= link_to 'Edit', edit_apartment_path(@apartment), class: "btn btn-warning" %>
+  <%= link_to 'Delete', apartment_path(@apartment), method: :delete, class: "btn btn-danger" %>
 
-<%= link_to 'Back', apartments_path, class: "btn btn-primary" %>
-<%= link_to 'Edit', edit_apartment_path(@apartment), class: "btn btn-warning" %>
-<%= link_to 'Delete', apartment_path(@apartment), method: :delete, class: "btn btn-danger" %>
-
+</div>
