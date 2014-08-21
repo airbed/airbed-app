@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+    # Following line makes your model fb-omniauthable
+  devise :omniauthable, :omniauth_providers => [:facebook]
+
 end
+

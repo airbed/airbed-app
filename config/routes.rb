@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
   root 'apartments#landing'
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :apartments do
     resources :images, only: [:new, :create, :destroy]
   end
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
