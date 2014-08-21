@@ -9,26 +9,42 @@ class ApartmentsController < ApplicationController
   end
 
   def new
-    @apartment = Apartment.new
+    if user_signed_in?
+      @apartment = Apartment.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
-    @apartment = Apartment.create(apartment_params)
+    :authenticate_user!
+    user = current_user
+    @apartment = user.apartments.create(apartment_params)
     redirect_to new_apartment_image_path(@apartment)
   end
 
   def edit
     @apartment = Apartment.find(params[:id])
+    if current_user.id != @apartment.user_id
+      redirect_to apartment_path(@apartment)
+    end
   end
 
   def update
     @apartment = Apartment.find(params[:id])
-    @apartment.update(apartment_params)
-    redirect_to apartment_path(@apartment)
+    if current_user.id == @apartment.user_id
+      @apartment.update(apartment_params)
+      redirect_to apartment_path(@apartment)
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def destroy
     @apartment = Apartment.find(params[:id])
+    if current_user.id != @apartment.user_id
+      redirect_to apartment_path(@apartment)
+    end
     @apartment.destroy
     redirect_to apartments_path
   end

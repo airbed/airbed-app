@@ -1,9 +1,37 @@
-<div class="text-center">
+<div class="row">
+  <div class="col-sm-offset-3 col-sm-6">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!--
+      Indicators  <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+     -->
 
-  <ul class="list-inline vertical-margin-s"><% @apartment.images.each do |image| %>
-    <li><%= image_tag image.picture.url(:medium) %></li>
-    <% end %>
-  </ul>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <% @apartment.images.each_with_index do |image, i| %>
+        <div class="item <%= i.zero? ? 'active' : '' %>">
+          <%= image_tag image.picture.url %>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+  </div>
+</div>
+
+
+
+<div class="text-center">
 
   <h1><%= @apartment.title %></h1>
 
@@ -14,7 +42,12 @@
   People : <h3><%= @apartment.people %></h3>
 
   <%= link_to 'Back', apartments_path, class: "btn btn-primary" %>
-  <%= link_to 'Edit', edit_apartment_path(@apartment), class: "btn btn-warning" %>
-  <%= link_to 'Delete', apartment_path(@apartment), method: :delete, class: "btn btn-danger" %>
+
+  <% if user_signed_in? %>
+    <% if current_user.id == @apartment.user_id %>
+      <%= link_to 'Edit', edit_apartment_path(@apartment), class: "btn btn-warning" %>
+      <%= link_to 'Delete', apartment_path(@apartment), method: :delete, class: "btn btn-danger" %>
+    <% end %>
+  <% end %>
 
 </div>
