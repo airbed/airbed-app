@@ -1,13 +1,14 @@
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
     <div class="navbar-header">
       <a>
         <%= link_to 'AIRBED', root_path, class: "navbar-brand" %>
       </a>
     </div>
 
+    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-center">
+      <ul class="nav navbar-nav">
         <li class="active">
           <%= link_to 'Add your own flat', new_apartment_path %>
         </li>
@@ -15,17 +16,12 @@
 
       <div class="nav navbar-nav navbar-right">
         <ul class="list-inline">
-          <!-- <li class="notice"><%= notice %></li>
-          <li class="alert"><%= alert %></li> -->
           <li><%= render 'layouts/sessions' %></li>
         </ul>
       </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-
-
 
 
 
