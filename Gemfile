@@ -6,6 +6,7 @@ gem 'rails', '4.1.4'
 
 gem 'aws-sdk'
 gem 'bootstrap-sass'
+gem 'cancancan', '~> 1.9'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'devise-i18n'
@@ -20,6 +21,7 @@ gem 'paperclip'
 gem 'pg'
 gem "quiet_assets"
 gem 'rails_12factor'
+gem 'rails_admin'
 gem 'rails-i18n'
 gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
