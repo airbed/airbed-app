@@ -21,6 +21,7 @@ class ApartmentsController < ApplicationController
     user = current_user
     @apartment = user.apartments.create(apartment_params)
     redirect_to new_apartment_image_path(@apartment)
+    UserMailer.newapt_email(user).deliver
   end
 
   def edit
